@@ -13,17 +13,20 @@
 
 <p class="txt">Lorem ipsum dolor  amet consectetur adipisicing . </p>
 <div class="imgd">
-<img id="profile-pic" src="" alt="Profile Picture" class="circular">
+<img id="profile-pic" src="" alt="" class="circular">
 </div>
 <p class="name"><span id="username"></span></p>
 <p class="num"><span id="number"></span></p>
-<a href="./index.html">
-<button class="box">Go Back</button></a>
-
-
- 
+<!-- <a href="./index.html"> -->
+<button class="box" onclick="clearDetails()">Go Back</button>
 
   <script>
+  // //   function clearDetails() {
+  //     document.getElementById('profile-pic').src ="";
+  // document.getElementById("username").textContent = "";
+  // document.getElementById("number").textContent = "";
+  // //   window.history.back();
+
     const storedUsername = localStorage.getItem('username');
     const storedNumber = localStorage.getItem('number');
     const storedImage = localStorage.getItem('profilepic');
@@ -35,14 +38,24 @@
 
     usernameSpan.textContent = storedUsername || "Not set";
     numberSpan.textContent = storedNumber || "Not set";
+    profileImg.src = storedImage || "img.jpg";
+
 
     if (storedImage) {
       profileImg.src = storedImage;
-    } else {
-      profileImg.alt = "No profile picture found";
-    }
+    } 
+
+    function clearDetails() {
+  localStorage.removeItem('username');
+  localStorage.removeItem('number');
+  localStorage.removeItem('profilepic');
+
+  document.getElementById('profile-pic').src ="img.jpg";
+  document.getElementById("username").textContent = "";
+  document.getElementById("number").textContent = "";
+     
    
-    
+    window.location.href = './index.html';}
     
     </script>
 </body>
