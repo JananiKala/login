@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update</title>
+  <link rel="stylesheet" href="./img.css">
+</head>
+<body>
+
+  
+   <h1 class="contents"><b>How would you like to use <span style="color: #9747FF;">Just event ?</span></b></h1>
+
+<p class="txt">Lorem ipsum dolor  amet consectetur adipisicing . </p>
+<div class="imgd">
+<img id="profile-pic" src="" alt="Profile Picture" class="circular">
+</div>
+<p class="name"><span id="username"></span></p>
+<p class="num"><span id="number"></span></p>
+<a href="./index.html">
+<button class="box">Go Back</button></a>
+
+
+ 
+
+  <script>
+    const storedUsername = localStorage.getItem('username');
+    const storedNumber = localStorage.getItem('number');
+    const storedImage = localStorage.getItem('profilepic');
+
+    const usernameSpan = document.getElementById('username');
+    const numberSpan = document.getElementById('number');
+    const profileImg = document.getElementById('profile-pic');
+
+
+    usernameSpan.textContent = storedUsername || "Not set";
+    numberSpan.textContent = storedNumber || "Not set";
+
+    if (storedImage) {
+      profileImg.src = storedImage;
+    } else {
+      profileImg.alt = "No profile picture found";
+    }
+   
+    
+    
+    </script>
+</body>
+</html>
